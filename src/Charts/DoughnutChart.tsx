@@ -5,7 +5,6 @@ import { DoughnutDetails } from '../Details';
 
 ChartJS.register(ArcElement, Tooltip, Legend, Title);
 
-
 export const options: ChartOptions = {
   plugins: {
     title: {

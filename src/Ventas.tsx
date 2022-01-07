@@ -27,7 +27,7 @@ ChartJS.register(
 const options: ChartOptions<'bar'> = {
   plugins: {
     title: {
-      display: true,
+      display: false,
       text: 'Ventas por mes',
     },
     legend: {
@@ -105,38 +105,39 @@ export const Ventas = () => {
     setDatasets(newDataset);
   }
 
+  const selectData = initialDatasets.map(dataset => (
+    { value: dataset.label || '', label: dataset.label || '' }
+  ));
+
   return (
     <Container mt={15} sx={{ width: '100vw' }}>
       <Center sx={{ flexDirection: 'column' }}>
         <MTitle order={1} mb={10}>Filtar por sede</MTitle>
-        <MultiSelect
-          searchable
-          mb={10}
-          data={[
-            { value: 'Sede 1', label: 'Sede 1'},
-            { value: 'Sede 2', label: 'Sede 2'},
-            { value: 'Sede 3', label: 'Sede 3'},
-            { value: 'Sede 4', label: 'Sede 4'},
-          ]}
-          value={selected}
-          onChange={setSelected}
-          sx={{ width: '300px' }}
-          />
-        <Group>
-          <Button onClick={filterData}>
-            Filtrar
-          </Button>
-          <Button 
-            onClick={() => {
-              setSelected([]);
-              setDatasets(initialDatasets);
-            }}
-          >
-            Borrar filtros
-          </Button>
+        <Group sx={{ gap: '10px' }}>
+          <MultiSelect
+            searchable
+            data={selectData}
+            value={selected}
+            onChange={setSelected}
+            sx={{ width: '300px' }}
+            />
+          <Group sx={{ gap: '10px' }}>
+            <Button onClick={filterData}>
+              Filtrar
+            </Button>
+            <Button 
+              onClick={() => {
+                setSelected([]);
+                setDatasets(initialDatasets);
+              }}
+              >
+              Borrar filtros
+            </Button>
+          </Group>
         </Group>
       </Center>
-      <Center mt={20}>
+      <MTitle align='center' mt={20} order={3}>{options.plugins?.title?.text}</MTitle>
+      <Center mt={5}>
         {
           datasets.map(data => (
             <Group mr={20} sx={{ gap: '5px' }} key={data.label}>
