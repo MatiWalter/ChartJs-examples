@@ -1,5 +1,6 @@
 import { Container, Title } from '@mantine/core'
 import { MainTabs } from './MainTabs'
+import { Ventas } from './Ventas'
 
 function App() {
   return (

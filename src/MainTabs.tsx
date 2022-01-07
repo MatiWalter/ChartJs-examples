@@ -10,6 +10,7 @@ import {
   SteppedLine,
   VerticalBar
 } from "./Charts";
+import { Ventas } from './Ventas';
 
 export const MainTabs = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -17,6 +18,9 @@ export const MainTabs = () => {
   return (
     <Container sx={({ width: '90%' })}>
       <Tabs active={activeTab} onTabChange={setActiveTab}>
+        <Tabs.Tab label="Ventas Stacked Bar">
+          <Ventas />
+        </Tabs.Tab>
         <Tabs.Tab label="Stacked Bar">
           <StackedBar />
         </Tabs.Tab>
