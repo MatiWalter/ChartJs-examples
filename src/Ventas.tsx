@@ -94,14 +94,9 @@ export const Ventas = () => {
 
   const filterData = () => {
     if (selected.length === 0) return;
-    let newDataset: ChartDataset<'bar', DefaultDataPoint<'bar'>>[] = [];
-    selected.map(select => {
-      initialDatasets.map(dataset => {
-        if (select === dataset.label) {
-          newDataset.push(dataset);
-        }
-      });
-    });
+    const newDataset = selected.flatMap(select => 
+      initialDatasets.filter(dataset => select === dataset.label)
+    );
     setDatasets(newDataset);
   }
 
