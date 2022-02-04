@@ -107,7 +107,7 @@ export const Ventas = () => {
   return (
     <Container mt={15} sx={{ width: '100vw' }}>
       <Center sx={{ flexDirection: 'column' }}>
-        <MTitle order={1} mb={10}>Filtar por sede</MTitle>
+        <MTitle order={1} mb={10}>Filtrar por sede</MTitle>
         <Group sx={{ gap: '10px' }}>
           <MultiSelect
             searchable
