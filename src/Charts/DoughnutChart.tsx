@@ -7,7 +7,7 @@ const DoughnutDetails = lazy(() => import('../Details/DoughnutDetails'));
 
 ChartJS.register(ArcElement, Tooltip, Legend, Title);
 
-export const options: ChartOptions = {
+export const options: ChartOptions<'doughnut'> = {
   plugins: {
     title: {
       display: true,

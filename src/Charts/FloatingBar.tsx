@@ -23,7 +23,7 @@ ChartJS.register(
   Legend
 );
 
-export const options: ChartOptions = {
+export const options: ChartOptions<'bar'> = {
   responsive: true,
   plugins: {
     title: {
