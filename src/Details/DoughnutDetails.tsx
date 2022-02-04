@@ -1,7 +1,7 @@
 import { Text, Container } from '@mantine/core';
 import { Prism } from '@mantine/prism'
 
-export const DoughnutDetails = () => {
+const DoughnutDetails = () => {
   return (
     <Container mt={15}>
       <Text>El componente Doghnut recibe la prop data, la cual es un objeto con la siguiente forma:</Text>
@@ -52,3 +52,5 @@ export const DoughnutDetails = () => {
     </Container>
   )
 }
+
+export default DoughnutDetails;

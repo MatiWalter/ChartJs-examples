@@ -1,3 +1,4 @@
+import { lazy } from 'react';
 import { Container } from '@mantine/core';
 import { 
   Chart as ChartJS,
@@ -11,7 +12,8 @@ import {
   ChartData,
 } from "chart.js";
 import { Line } from 'react-chartjs-2';
-import { LineDetails } from '../Details';
+
+const LineDetails = lazy(() => import('../Details/LineDetails'));
 
 ChartJS.register(
   CategoryScale,
@@ -51,7 +53,7 @@ const options: ChartOptions<'line'> = {
   },
 }
 
-export const MultiAxisLine = () => {
+const MultiAxisLine = () => {
 
   const labels: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 
@@ -82,3 +84,5 @@ export const MultiAxisLine = () => {
     </Container>
   )
 }
+
+export default MultiAxisLine;

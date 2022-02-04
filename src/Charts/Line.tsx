@@ -9,13 +9,12 @@ import {
   Legend,
   ChartData,
   ChartOptions,
-  ChartDataset,
-  DefaultDataPoint,
   ChartArea,
 } from "chart.js";
-import { useEffect, useRef, useState } from 'react';
+import { lazy, useEffect, useRef, useState } from 'react';
 import { Line } from 'react-chartjs-2';
-import { LineDetails } from '../Details';
+
+const LineDetails = lazy(() => import('../Details/LineDetails'));
 
 ChartJS.register(
   CategoryScale,
@@ -36,7 +35,7 @@ const options: ChartOptions<'line'> = {
   },
 }
 
-export const LineChart = () => {
+const LineChart = () => {
 
   const chartRef = useRef<ChartJS<'line'>>(null);
   const [data, setData] = useState<ChartData<'line'>>({
@@ -88,3 +87,5 @@ export const LineChart = () => {
     </Container>
   )
 }
+
+export default LineChart;

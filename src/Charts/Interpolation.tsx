@@ -1,3 +1,4 @@
+import { lazy } from 'react';
 import { Container } from '@mantine/core';
 import { 
   Chart as ChartJS,
@@ -11,7 +12,8 @@ import {
   ChartOptions,
 } from "chart.js";
 import { Line } from 'react-chartjs-2';
-import { LineDetails } from '../Details';
+
+const LineDetails = lazy(() => import('../Details/LineDetails'));
 
 ChartJS.register(
   CategoryScale,
@@ -83,7 +85,7 @@ const options: ChartOptions<'line'> = {
   }
 };
 
-export const Interpolation = () => {
+const Interpolation = () => {
   return (
     <Container mt={15}>
       <Line data={data} options={options} />
@@ -91,3 +93,5 @@ export const Interpolation = () => {
     </Container>
   )
 }
+
+export default Interpolation;

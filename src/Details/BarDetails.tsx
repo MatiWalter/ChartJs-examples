@@ -1,7 +1,7 @@
 import { Text } from '@mantine/core';
 import { Prism } from '@mantine/prism';
 
-export const BarDetails = () => {
+const BarDetails = () => {
   return (
     <>
       <Text>El componente Bar recibe la prop data, la cual es un objeto con la siguiente forma:</Text>
@@ -84,3 +84,5 @@ export const BarDetails = () => {
     </>
   )
 }
+
+export default BarDetails;

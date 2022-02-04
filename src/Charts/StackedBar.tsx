@@ -1,3 +1,4 @@
+import { lazy } from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -13,7 +14,8 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { Container } from '@mantine/core';
-import { BarDetails } from '../Details';
+
+const BarDetails = lazy(() => import('../Details/BarDetails'));
 
 ChartJS.register(
   CategoryScale,
@@ -69,7 +71,7 @@ const options: ChartOptions<'bar'> = {
   },
 };
 
-export const StackedBar = () => {
+const StackedBar = () => {
 
   const labels: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
   const datasets: ChartDataset<'bar', DefaultDataPoint<'bar'>>[] = [
@@ -97,3 +99,5 @@ export const StackedBar = () => {
     </Container>
   )
 }
+
+export default StackedBar;

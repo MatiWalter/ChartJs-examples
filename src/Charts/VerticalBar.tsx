@@ -1,3 +1,4 @@
+import { lazy } from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -11,7 +12,8 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { Container } from '@mantine/core';
-import { BarDetails } from '../Details';
+
+const BarDetails = lazy(() => import('../Details/BarDetails'));
 
 ChartJS.register(
   CategoryScale,
@@ -32,7 +34,7 @@ export const options: ChartOptions<'bar'> = {
   },
 };
 
-export const VerticalBar = () => {
+const VerticalBar = () => {
 
   const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 
@@ -59,3 +61,5 @@ export const VerticalBar = () => {
     </Container>
   )
 }
+
+export default VerticalBar;

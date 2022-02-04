@@ -1,6 +1,5 @@
-import { Container, Title } from '@mantine/core'
-import { MainTabs } from './MainTabs'
-import { Ventas } from './Ventas'
+import { Container, Title } from '@mantine/core';
+import { MainTabs } from './MainTabs';
 
 function App() {
   return (
@@ -11,4 +10,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

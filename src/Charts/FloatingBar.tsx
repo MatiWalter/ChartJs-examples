@@ -1,3 +1,4 @@
+import { lazy } from 'react';
 import { Container } from '@mantine/core';
 import {
   Chart as ChartJS,
@@ -10,7 +11,8 @@ import {
   ChartOptions,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import { BarDetails } from '../Details';
+
+const BarDetails = lazy(() => import('../Details/BarDetails'));
 
 ChartJS.register(
   CategoryScale,
@@ -49,7 +51,7 @@ const data = {
   ]
 };
 
-export const FloatingBar = () => {
+const FloatingBar = () => {
   return (
     <Container mt={15}>
       <Bar data={data} options={options} />
@@ -57,3 +59,5 @@ export const FloatingBar = () => {
     </Container>
   )
 }
+
+export default FloatingBar;

@@ -1,7 +1,9 @@
+import { lazy } from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title, ChartOptions, ChartData, ChartDataset } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { Container } from '@mantine/core';
-import { DoughnutDetails } from '../Details';
+
+const DoughnutDetails = lazy(() => import('../Details/DoughnutDetails'));
 
 ChartJS.register(ArcElement, Tooltip, Legend, Title);
 
@@ -45,7 +47,7 @@ const data: ChartData<'doughnut'> = {
   datasets
 };
 
-export const DoughnutChart = () => {
+const DoughnutChart = () => {
   return (
     <Container mt={15}>
       <Doughnut data={data} options={options} />
@@ -53,3 +55,5 @@ export const DoughnutChart = () => {
     </Container>
   )
 }
+
+export default DoughnutChart;

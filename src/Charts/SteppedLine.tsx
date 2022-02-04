@@ -1,3 +1,4 @@
+import { lazy } from 'react';
 import { 
   Chart as ChartJS,
   CategoryScale,
@@ -11,7 +12,8 @@ import {
 } from "chart.js";
 import { Line } from 'react-chartjs-2';
 import { Container } from '@mantine/core';
-import { LineDetails } from '../Details/LineDetails';
+
+const LineDetails = lazy(() => import('../Details/LineDetails'));
 
 ChartJS.register(
   CategoryScale,
@@ -59,7 +61,7 @@ const options: ChartOptions<'line'> = {
   }
 }
 
-export const SteppedLine = () => {
+const SteppedLine = () => {
   return (
     <Container mt={15}>
       <Line data={data} options={options} />
@@ -67,3 +69,5 @@ export const SteppedLine = () => {
     </Container>
   )
 }
+
+export default SteppedLine;
